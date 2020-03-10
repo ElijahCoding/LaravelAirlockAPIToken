@@ -11,4 +11,11 @@ class ApiTokenController extends Controller
     {
         return view('apitokens.index');
     }
+
+    public function store(Request $request)
+    {
+        $token = $request->user()->createToken($request->name);
+
+        return back()->withStatus('Token created: ' . $token->plainTextToken);
+    }
 }
