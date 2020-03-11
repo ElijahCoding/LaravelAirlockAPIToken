@@ -82,15 +82,15 @@
 
                             <div class="form-group row">
                                 <div class="col-md-6 offset-md-4">
-{{--                                    @foreach ($apiAbilities as $apiAbility)--}}
-{{--                                        <div class="form-check">--}}
-{{--                                            <input type="checkbox" class="form-check-input" name="abilities[{{ $apiAbility->id }}]" id="abilities[{{ $apiAbility->id }}]" {{ in_array($apiAbility->id, old('abilities') ?? []) ? 'checked' : '' }} value="{{ $apiAbility->id }}">--}}
+                                    @foreach ($apiAbilities as $apiAbility)
+                                        <div class="form-check">
+                                            <input type="checkbox" class="form-check-input" name="abilities[{{ $apiAbility->id }}]" id="abilities[{{ $apiAbility->id }}]" {{ in_array($apiAbility->id, old('abilities') ?? []) ? 'checked' : '' }} value="{{ $apiAbility->id }}">
 
-{{--                                            <label for="abilities[{{ $apiAbility->id }}]">--}}
-{{--                                                {{ $apiAbility->name }}--}}
-{{--                                            </label>--}}
-{{--                                        </div>--}}
-{{--                                    @endforeach--}}
+                                            <label for="abilities[{{ $apiAbility->id }}]">
+                                                {{ $apiAbility->name }}
+                                            </label>
+                                        </div>
+                                    @endforeach
                                 </div>
                             </div>
 
