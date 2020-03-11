@@ -23,3 +23,4 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/apitokens', 'ApiTokens\ApiTokenController@index')->name('apitokens');
 Route::post('/apitokens', 'ApiTokens\ApiTokenController@store');
+Route::delete('/apitokens/{id}', 'ApiTokens\ApiTokenController@destroy');
