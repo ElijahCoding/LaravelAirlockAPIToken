@@ -25,10 +25,9 @@
                                             {{ $token->name }}
                                         </td>
                                         <td>
-                                            Abilities
-{{--                                            @foreach($token->abilities as $tokenAbility)--}}
-{{--                                                {{ $tokenAbility }}<br>--}}
-{{--                                            @endforeach--}}
+                                            @foreach($token->abilities as $tokenAbility)
+                                                {{ $tokenAbility }}<br>
+                                            @endforeach
                                         </td>
                                         <td>
                                             {{ $token->created_at->toDateTimeString() }}

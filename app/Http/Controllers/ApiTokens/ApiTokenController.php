@@ -25,8 +25,18 @@ class ApiTokenController extends Controller
         ]);
 
 
-        $token = $request->user()->createToken($request->name);
+        $token = $request->user()->createToken(
+            $request->name,
+            optional(optional(ApiAbility::find($request->abilities))->pluck('name'))->toArray() ?? []
+        );
 
         return back()->withStatus('Token created: ' . $token->plainTextToken);
+    }
+
+    public function destroy($id, Request $request)
+    {
+        $request->user()->tokens()->whereId($id)->delete();
+
+        return back();
     }
 }
