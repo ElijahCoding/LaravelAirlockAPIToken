@@ -9,6 +9,8 @@ class RepoInviteController extends Controller
 {
     public function index(Request $request)
     {
+        $this->authorize('repo:invites_view', $request->user()->currentAccessToken());
+
         if ($request->user()->tokenCan('repo:invites_view')) {
             return response(null, 401);
         }
@@ -16,8 +18,6 @@ class RepoInviteController extends Controller
 
     public function store(Request $request)
     {
-        if ($request->user()->tokenCan('repo:invites_create')) {
-            return response(null, 401);
-        }
+        $this->authorize('repo:invites_create', $request->user()->currentAccessToken());
     }
 }
