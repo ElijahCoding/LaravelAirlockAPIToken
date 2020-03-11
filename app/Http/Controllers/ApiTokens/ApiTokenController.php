@@ -9,7 +9,9 @@ class ApiTokenController extends Controller
 {
     public function index(Request $request)
     {
-        return view('apitokens.index');
+        $tokens = $request->user()->tokens;
+
+        return view('apitokens.index', compact('tokens'));
     }
 
     public function store(Request $request)
